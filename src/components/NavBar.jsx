@@ -1,12 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Form, Button, } from 'react-bootstrap';
+import { Form, Button, Row, Col, } from 'react-bootstrap';
 import '../App.css'; 
 
 function ColorSchemesExample() {
   return (
     <>
+    <Row><Col xs={2} lg={3} >
  <Navbar bg="dark" variant="dark" expand="md" className="flex-column p-3" style={{ height: '100vh', position: 'fixed', left: 0, top: 0, width: '250px' }}>
 
   
@@ -38,7 +39,7 @@ function ColorSchemesExample() {
             <a href="#" className="text-light"> Privacy</a>
           </div>
         </div>
-      </Navbar>
+      </Navbar></Col></Row>
     </>
   );
 }
