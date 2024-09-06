@@ -2,6 +2,7 @@ export const PLAY_SONG = 'PLAY_SONG';
 export const TOGGLE_LIKE = 'TOGGLE_LIKE';
 export const SET_SONGS = 'SET_SONGS';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_SEARCH_QUERY='SET_SEARCH_QUERY'
 
 
 export const playSong = (song) => ({
@@ -23,6 +24,11 @@ export const setError = (error) => ({
   type: SET_ERROR,
   payload: error,
 });
+export const setSearchQuery = (query) => ({
+    type: 'SET_SEARCH_QUERY',
+    payload: query,
+  });
+  
 
 export const getSongsAction = (query) => {
   return (dispatch) => {
