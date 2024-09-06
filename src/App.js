@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import ColorSchemesExample from './components/NavBar';
 
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
 
   return (
     <div className="App">
-      <></>
+      <>
+      <ColorSchemesExample/>
+      </>
     </div>
   );
 }
