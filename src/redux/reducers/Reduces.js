@@ -1,4 +1,4 @@
-import { PLAY_SONG, TOGGLE_LIKE, SET_SONGS, SET_ERROR, SET_SEARCH_QUERY} from '../actions/Actions';
+import { PLAY_SONG, TOGGLE_LIKE, SET_SONGS, SET_ERROR} from '../actions/Actions';
 
 const initialState = {
   list: [],

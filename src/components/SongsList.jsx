@@ -30,7 +30,6 @@ const SongList = () => {
   };
   return (
     <div>
-      <Search onSearch={searchSongs} /> 
       <div className="song-list">
         {songs.map(song => (
           <SongCard
