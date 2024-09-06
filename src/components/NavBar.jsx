@@ -1,8 +1,9 @@
-import Container from 'react-bootstrap/Container';
+
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Form, Button, Row, Col, } from 'react-bootstrap';
-import '../App.css'; 
+import {  Button, Row, Col, } from 'react-bootstrap';
+import Search from './Search';
+
 
 function ColorSchemesExample() {
   return (
@@ -21,14 +22,7 @@ function ColorSchemesExample() {
             <Nav.Link href="#" className="d-flex align-items-center">
               <i className="bi bi-book-fill"></i>&nbsp; Your Library
             </Nav.Link>
-            <Form className="mt-3">
-              <Form.Group controlId="formSearch">
-                <Form.Control type="text" placeholder="Search" />
-              </Form.Group>
-              <Button variant="outline-secondary" size="sm" className="mt-2">
-                GO
-              </Button>
-            </Form>
+           <Search/>
           </Nav>
 
         <div className="mt-auto">

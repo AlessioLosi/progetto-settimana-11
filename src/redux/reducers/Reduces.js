@@ -1,56 +1,45 @@
-import { PLAY_SONG } from "../actions/Actions";
-import { TOGGLE_LIKE } from "../actions/Actions";
+// src/redux/songsReducer.js
+
+import { PLAY_SONG, TOGGLE_LIKE, SET_SONGS, SET_ERROR } from '../actions/Actions';
 
 const initialState = {
   list: [],
   currentSong: null,
   likedSongs: [],
-  status: 'idle',
+  error: null,
 };
-
-const playSongReducer = (state, action) => {
-  state.currentSong = action.payload;
-};
-
-const toggleLikeReducer = (state, action) => {
-  const songId = action.payload;
-  if (state.likedSongs.includes(songId)) {
-    state.likedSongs = state.likedSongs.filter(id => id !== songId);
-  } else {
-    state.likedSongs.push(songId);
-  }
-};
-
 
 const songsReducer = (state = initialState, action) => {
   switch (action.type) {
     case PLAY_SONG:
-      return playSongReducer(state, action);
+      return {
+        ...state,
+        currentSong: action.payload,
+      };
     case TOGGLE_LIKE:
-      return toggleLikeReducer(state, action);
+      const songId = action.payload;
+      return {
+        ...state,
+        likedSongs: state.likedSongs.includes(songId)
+          ? state.likedSongs.filter(id => id !== songId)
+          : [...state.likedSongs, songId],
+      };
+    case SET_SONGS:
+      return {
+        ...state,
+        list: action.payload,
+        error: null, 
+      };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload,
+      };
     default:
       return state;
   }
 };
-export const getSongsAction = () => {
-    return (dispatch, getState) => {
-      fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q=' +{query})
-        .then((response) => {
-          if (response.ok) {
-            return response.json()
-          } else {
-            throw new Error('errore nel recupero dei libri')
-          }
-        })
-        .then((arrayOfBooks) => {
-          dispatch({
-            type: GET_SONGS,
-            payload: arrayOfSongs,
-          })
-        })
-        .catch((err) => {
-          console.log(err)
-        })}}
 
 export default songsReducer;
+
 
